@@ -1,0 +1,44 @@
+.form-container{
+    display: block;
+    width:100%;
+    padding: 2em;
+    margin: 2em auto ;
+    background-image:url("https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    
+}
+.alert{
+    background: #f2edda;
+    padding: 7px;
+    font-size: .9em;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: 2s alertAnim forwards;
+
+}
+.button{
+    margin-top:3rem;
+}
+p{
+    color: viole;
+}
+h1{
+    margin-bottom : 2rem;
+    font-weight:bold;
+    font-family:'Muli';
+    font-size:2em;
+    background-color: aquazz;
+}
+@keyframes alertAnim{
+    from{
+        opacity:0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    body {
+        background-image: url("https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        background-color: #cccccc;
+       }
+}

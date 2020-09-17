@@ -1,0 +1,147 @@
+<body>
+<div *ngIf="!name;else forminfo">
+  <form [formGroup]=rForm (ngSubmit)="addPost(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <h1>WELCOME TO BAHAMAS </h1>
+        <label>Name
+          <input type="text" id="name" formControlName="name" RequiredFieldValidator>
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">This is required</div>
+
+        <label>Last Name
+          <input type="text" formControlName="lname" id="lname"required>
+        </label>
+          <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+        
+       
+
+        <label>Email
+          <input type="email" formControlName="email" id="mail" RequiredFieldValidator>
+          
+        
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+
+
+        <label>Phone
+          <input type="text" formControlName="phone"required>
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+
+        <label>password
+          <input type="password" formControlName="password" required>
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">Your password must have:atleat 1 character;1 CAPS ;1 small and number </div>
+        
+        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+        <label>Check In
+          <input type="date" required formControlName="checkin" id="chIn">
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+        <label>Check Out
+          <input type="date" required formControlName="checkout" id="chOut">
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+        
+
+        <input type="submit" class="button expand" value="Submit Form" [disabled]="rForm.valid">
+      </div>
+    </div>
+
+  </form>
+</div>
+<ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+
+      <h2>ADD YOUR BANK DETAILS&nbsp;{{name}}</h2>
+
+        <form [formGroup]=rForm (ngSubmit)="addPost(rForm.value)">
+          <p>Please enter your bank details</p><br>
+          <div class="col-md-6">
+            <span>Credit Card Payment</span>
+          </div>
+          <div class="col-md-6 text-right" style="margin-top: -5px;">
+            <img src="https://img.icons8.com/color/36/000000/visa.png">
+            <img src="https://img.icons8.com/color/36/000000/mastercard.png">
+            <img src="https://img.icons8.com/color/36/000000/amex.png">
+
+          </div>
+          <label>Bank Name
+            <input type="text" formControlName="bankName">
+          </label>
+          <label>Account Holder
+            <input type="text" formControlName="holderName">
+          </label>
+          <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+          <label>Card Number
+            <input type="text" formControlName="cardNo" >
+          </label>
+          <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+          <label>cvv
+            <input type="text" formControlName="cvv">
+          </label>
+          <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+          <label>Expiry Date
+            <input type="date" formControlName="exDate">
+          </label>  <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['name'].touched">This is required</div>
+
+          <input type="submit" class="button expand" value="Submit Form" [disabled]="rForm.valid">
+        </form>
+    </div>
+  </div>
+
+
+</ng-template>
+
+  <div *ngIf="!name; else forminfo2">
+    <form [formGroup]="rForm"(ngSubmit)="addPost(rForm.value)">
+      <div class="form-contain">
+        <div class="row columns">
+            <label>
+
+             <hr>
+
+
+            </label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <ng-template #forminfo2>
+      <div class="form-container">
+        <div class="row columns">
+          <br><br><br><br><br><br>
+          <h1>Confirmation</h1>
+          
+            <h4>The hotel you are looking must have the following specification:</h4>
+              {{description}}
+          </div>
+          <form>
+            <h4>Personal Details</h4>
+            <p>Name: {{name}}</p>
+            <p>Last Name: {{lname}}</p>
+            <p>Email: {{email}}</p>
+            <p>Password:{{password}} </p>
+            <p>Phone: {{phone}}</p>
+            <p>Check in Date: {{checkin}}</p>
+            <p>Check out Date {{checkout}}</p>
+            <hr style="width: 250px;height: 15px;color: lime;">
+            <h4>Bank Details</h4>
+            <p>Bank Name:{{bankName}} </p>
+            <p>Account Holder Name: {{holderName}}</p>
+            <p>Card Number: {{cardNo}}</p>
+            <p>CVV: {{cvv}}</p>
+            <p>Expiry Date: 2023/01/07</p>
+
+          </form>
+        </div>
+
+
+  </ng-template>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</body> 
